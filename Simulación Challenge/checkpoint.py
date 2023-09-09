@@ -2,6 +2,8 @@
 # código dentro de las funciones ya definidas.
 
 def Factorial(numero):
+
+
     '''
     Esta función devuelve el factorial del número pasado como parámetro.
     En caso de que no sea de tipo entero y/o sea menor que 1, debe retornar nulo.
@@ -12,7 +14,13 @@ def Factorial(numero):
         Factorial(-2) debe retornar nulo
     '''
     #Tu código aca:
-    return 'Funcion incompleta'
+    resultado = 1
+    if type(numero) == int and numero > 0:
+        for i in range(1, numero+1):
+            resultado *= i
+        return resultado
+    else:
+        return 'Funcion incompleta'
 
 def EsPrimo(valor):
     '''
@@ -26,7 +34,15 @@ def EsPrimo(valor):
         EsPrimo(8) debe retornar False
     '''
     #Tu código aca:
-    return 'Funcion incompleta'
+    primo = True
+    if type(valor) == int:
+        for i in range(2,valor):
+            if valor%i == 0:
+                primo = False
+                break
+        return primo
+    else:
+        return 'Funcion incompleta'
     
 def ClaseAnimal(especie, color):
     '''
@@ -47,4 +63,17 @@ def ClaseAnimal(especie, color):
         a.CumpliAnios() -> debe devolver 3
     '''
     #Tu código aca:
-    return 'Funcion incompleta'
+    class Animal():
+        def __init__(self, especie, color):
+            if type(especie) == str and type(color) == str:
+                self.especie = especie
+                self.color = color
+                self.edad = 0
+            else:
+                raise ValueError("Parametros incorrectos")
+        
+        def Cumplir_anios(self):
+            self.edad += 1
+            print("El " + self.especie , self.color + " tiene " + self.edad + " años de edad")
+
+    return Animal(especie, color)
